@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell narrow">
+      <section class="admin-panel" aria-labelledby="login-title">
+        <div>
+          <p class="eyebrow">Backend</p>
+          <h2 id="login-title">Admin Login</h2>
+        </div>
+
+        <label class="field">
+          <span>Admin password</span>
+          <input id="admin-password" type="password" autocomplete="current-password" placeholder="Enter admin password">
+        </label>
+
+        <button id="admin-login" type="button">Save Password</button>
+        <p class="muted-text">This stores the password in this browser only.</p>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

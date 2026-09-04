@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claim Helper Admin</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="admin-panel" aria-labelledby="admin-title">
+        <div class="admin-header">
+          <div>
+            <p class="eyebrow">Backend</p>
+            <h2 id="admin-title">Admin</h2>
+          </div>
+          <div class="toolbar">
+            <a class="ghost-link" href="/admin-login.html">Login</a>
+            <button id="admin-logout" class="ghost" type="button">Logout</button>
+            <button id="refresh-admin" class="ghost" type="button">Refresh</button>
+          </div>
+        </div>
+
+        <div class="section-grid" aria-label="Backend sections">
+          <a class="section-card" href="/admin-section.html?section=comments">
+            <span>Comments</span>
+            <strong><span id="comments-available">0</span> available</strong>
+            <small><span id="comments-used">0</span> used</small>
+          </a>
+
+          <a class="section-card" href="/admin-section.html?section=youtubeLinks">
+            <span>YouTube links</span>
+            <strong><span id="youtube-available">0</span> available</strong>
+            <small><span id="youtube-used">0</span> used</small>
+          </a>
+
+          <a class="section-card" href="/admin-section.html?section=tiktokLinks">
+            <span>TikTok links</span>
+            <strong><span id="tiktok-available">0</span> available</strong>
+            <small><span id="tiktok-used">0</span> used</small>
+          </a>
+
+          <a class="section-card" href="/admin-section.html?section=logs">
+            <span>Claim log</span>
+            <strong id="log-count">0 claims</strong>
+            <small>Newest first</small>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

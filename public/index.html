@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claim Helper</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="claim-panel" aria-labelledby="claim-title">
+        <div class="button-grid" aria-label="Claim actions">
+          <button type="button" data-claim-type="tiktok">Get TikTok Link</button>
+          <button type="button" data-claim-type="youtube">Get YouTube Link</button>
+          <button type="button" data-claim-type="comment">Get Comment</button>
+        </div>
+
+        <div class="result-box" aria-live="polite">
+          <span id="result-label" class="label">Your item</span>
+          <p id="result">Click a button to claim the next available item.</p>
+        </div>
+
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

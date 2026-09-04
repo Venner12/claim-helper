@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claim Helper Admin Section</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="admin-panel" aria-labelledby="section-title">
+        <div class="admin-header">
+          <div>
+            <p id="section-eyebrow" class="eyebrow">Backend</p>
+            <h2 id="section-title">Section</h2>
+          </div>
+          <div class="toolbar">
+            <a class="ghost-link" href="/admin.html">Back</a>
+            <a class="ghost-link" href="/admin-login.html">Login</a>
+            <button id="admin-logout" class="ghost" type="button">Logout</button>
+          </div>
+        </div>
+
+        <div id="section-editor" class="admin-list-editor" hidden>
+          <label class="field">
+            <span id="section-input-label">Items, one per line</span>
+            <textarea id="section-input" rows="12" placeholder="Paste items here, one per line"></textarea>
+          </label>
+          <div class="button-row">
+            <button id="section-add" type="button">Add More</button>
+            <button id="section-save" class="danger-button" type="button">Replace List</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="admin-header compact">
+            <h3 id="section-list-title">Items</h3>
+            <div class="toolbar">
+              <input id="section-search" class="search-input" type="search" placeholder="Search">
+              <button id="export-logs" class="ghost" type="button" hidden>Export CSV</button>
+              <button id="clear-used" class="danger-button small-button" type="button" hidden>Clear Used</button>
+              <button id="refresh-admin" class="ghost" type="button">Refresh</button>
+            </div>
+          </div>
+          <div id="section-list" class="list"></div>
+          <div id="pagination" class="pagination" hidden>
+            <button id="prev-page" class="ghost" type="button">Previous</button>
+            <span id="page-status">Page 1</span>
+            <button id="next-page" class="ghost" type="button">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

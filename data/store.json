@@ -1,0 +1,59 @@
+{
+  "comments": [
+    {
+      "id": "fe17564d-61f9-432e-ac93-b9fa07c0858c",
+      "value": "fwwfawf",
+      "claimedAt": "2026-09-04T17:16:49.077Z"
+    },
+    {
+      "id": "fcd553ca-b668-43d5-8ad0-cdd1a39b51d2",
+      "value": "fwfwfwfffwf",
+      "claimedAt": "2026-09-04T17:16:49.757Z"
+    },
+    {
+      "id": "d3e2c110-e79b-47c4-9f78-b0745f2a2ad3",
+      "value": "gbrbdfbdfb",
+      "claimedAt": "2026-09-04T18:20:38.179Z"
+    }
+  ],
+  "youtubeLinks": [],
+  "tiktokLinks": [],
+  "logs": [
+    {
+      "id": "ca9bb3e6-2b6e-47f8-9666-484cb080d17c",
+      "type": "comment",
+      "itemId": "d3e2c110-e79b-47c4-9f78-b0745f2a2ad3",
+      "value": "gbrbdfbdfb",
+      "claimedAt": "2026-09-04T18:20:38.179Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "4adbd886-83ba-412e-b258-07a95ed382f9",
+      "type": "comment",
+      "itemId": "fcd553ca-b668-43d5-8ad0-cdd1a39b51d2",
+      "value": "fwfwfwfffwf",
+      "claimedAt": "2026-09-04T17:16:49.757Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "2d776e91-f360-4a0d-aa80-0a6cf26d1ceb",
+      "type": "comment",
+      "itemId": "fe17564d-61f9-432e-ac93-b9fa07c0858c",
+      "value": "fwwfawf",
+      "claimedAt": "2026-09-04T17:16:49.077Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "30e8e05f-182d-48ec-93cb-4a995ce88f03",
+      "type": "comment",
+      "itemId": "seed-comment-1",
+      "value": "Love this, thanks for sharing!",
+      "claimedAt": "2026-09-04T17:08:14.511Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    }
+  ]
+}

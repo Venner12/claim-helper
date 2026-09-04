@@ -1,0 +1,13 @@
+{
+  "name": "claim-link-comment-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A tiny app for claiming comments and links one at a time.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
