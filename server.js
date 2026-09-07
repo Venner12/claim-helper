@@ -376,6 +376,46 @@ async function handleApi(req, res, pathname) {
     return;
   }
 
+  if (req.method === "POST" && pathname === "/api/admin/mark-unused") {
+    if (!requireAdmin(req, res)) return;
+    const body = await readJsonBody(req);
+    const type = body.type;
+    const itemId = String(body.itemId || "");
+
+    if (!TYPES.has(type)) {
+      sendJson(res, 400, { error: "Invalid list type." });
+      return;
+    }
+
+    if (!itemId) {
+      sendJson(res, 400, { error: "Missing item id." });
+      return;
+    }
+
+    const result = await updateStore((current) => {
+      const item = current[type].find((entry) => entry.id === itemId);
+      if (!item) return null;
+
+      item.claimedAt = null;
+      return {
+        id: item.id,
+        value: item.value
+      };
+    });
+
+    if (!result) {
+      sendJson(res, 404, { error: "Item not found." });
+      return;
+    }
+
+    sendJson(res, 200, {
+      ok: true,
+      type,
+      item: result
+    });
+    return;
+  }
+
   sendJson(res, 404, { error: "Not found." });
 }
 

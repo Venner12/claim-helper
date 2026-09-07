@@ -160,6 +160,12 @@ button.small-button {
   background: #fbfcfd;
 }
 
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .label,
 .field span {
   display: block;
@@ -334,6 +340,13 @@ textarea {
   font-size: 0.86rem;
 }
 
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .pagination {
   display: flex;
   gap: 12px;
@@ -365,6 +378,7 @@ textarea {
 
   .button-grid,
   .button-row,
+  .result-grid,
   .admin-grid,
   .section-grid,
   .tables {

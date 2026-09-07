@@ -6,9 +6,10 @@ A very small web app for handing out comments, YouTube links, and TikTok links o
 
 - Public users click `Get Comment`, `Get YouTube Link`, or `Get TikTok Link`.
 - The app gives them the next unused item from that list.
+- TikTok, YouTube, and comment results show in separate boxes, so one does not erase the others.
 - Once an item is claimed, it is marked used.
 - The same IP address can claim one item per type per hour.
-- Admin pages let you add lists, replace lists, search lists, clear used items, copy rows, export the claim log, and check usage.
+- Admin pages let you add lists, replace lists, search lists, clear used items, mark individual items unused, copy rows, export the claim log, and check usage.
 
 ## Run Locally
 
@@ -150,6 +151,21 @@ The old active items are gone, but the claim log still keeps history.
 Use `Clear Used` when a section is getting cluttered.
 
 It removes only used items from that active list. Unused items stay. The claim log stays.
+
+## Mark Unused
+
+Used rows have a `Mark Unused` button.
+
+Use this when you claimed something during testing and want that exact comment or link to become available again.
+
+`Mark Unused`:
+
+- Makes that one item claimable again.
+- Keeps the item in the same section.
+- Does not delete the claim log.
+- Does not erase the one-hour cooldown history.
+
+Important: if you personally claimed the item during testing, your same IP address may still be blocked by the one-hour cooldown even after marking the item unused. Other users can still receive that reinstated item.
 
 ## Search
 
@@ -335,6 +351,7 @@ If something looks wrong:
 - `POST /api/admin/add` adds new items to one list.
 - `POST /api/admin/replace` replaces one list.
 - `POST /api/admin/clear-used` removes used items from one list.
+- `POST /api/admin/mark-unused` marks one used item as unused again.
 
 Valid list types:
 

@@ -1,6 +1,11 @@
 const claimButtons = document.querySelectorAll("[data-claim-type]");
 const result = document.querySelector("#result");
 const resultLabel = document.querySelector("#result-label");
+const resultByType = {
+  comment: document.querySelector("#result-comment"),
+  youtube: document.querySelector("#result-youtube"),
+  tiktok: document.querySelector("#result-tiktok")
+};
 const commentsAvailable = document.querySelector("#comments-available");
 const commentsUsed = document.querySelector("#comments-used");
 const youtubeAvailable = document.querySelector("#youtube-available");
@@ -109,6 +114,17 @@ function setResult(message, isError = false) {
   result.classList.toggle("error", isError);
 }
 
+function setClaimResult(type, message, isError = false) {
+  const target = resultByType[type];
+  if (!target) {
+    setResult(message, isError);
+    return;
+  }
+
+  target.textContent = message;
+  target.classList.toggle("error", isError);
+}
+
 function renderStatus(status) {
   if (commentsAvailable) commentsAvailable.textContent = status.comments.available;
   if (commentsUsed) commentsUsed.textContent = status.comments.used;
@@ -154,6 +170,40 @@ function makeCopyButton(value) {
   return button;
 }
 
+function makeMarkUnusedButton(item) {
+  const button = document.createElement("button");
+  button.className = "copy-button";
+  button.type = "button";
+  button.textContent = "Mark Unused";
+  button.addEventListener("click", async () => {
+    const selectedSection = getSelectedSection();
+    const confirmed = confirm("Mark this item as unused so it can be claimed again?");
+    if (!confirmed) return;
+
+    button.disabled = true;
+
+    try {
+      await requestJson("/api/admin/mark-unused", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          ...adminHeaders()
+        },
+        body: JSON.stringify({
+          type: selectedSection,
+          itemId: item.id
+        })
+      });
+      await refreshAdminSection();
+    } catch (error) {
+      handleAdminError(error);
+    } finally {
+      button.disabled = false;
+    }
+  });
+  return button;
+}
+
 function renderItemRow(item) {
   const row = document.createElement("div");
   row.className = `row${item.claimedAt ? " used" : ""}`;
@@ -161,7 +211,12 @@ function renderItemRow(item) {
   const value = document.createElement("span");
   value.textContent = item.value;
   row.append(value);
-  row.append(makeCopyButton(item.value));
+
+  const actions = document.createElement("div");
+  actions.className = "row-actions";
+  actions.append(makeCopyButton(item.value));
+  if (item.claimedAt) actions.append(makeMarkUnusedButton(item));
+  row.append(actions);
 
   if (item.claimedAt) {
     const meta = document.createElement("small");
@@ -300,13 +355,13 @@ claimButtons.forEach((button) => {
     const label = claimLabels[type] || "item";
     button.disabled = true;
     if (resultLabel) resultLabel.textContent = `Your ${label}`;
-    setResult(`Claiming the next ${label}...`);
+    setClaimResult(type, `Claiming the next ${label}...`);
 
     try {
       const claim = await requestJson(`/api/claim/${type}`, { method: "POST" });
-      setResult(claim.value);
+      setClaimResult(type, claim.value);
     } catch (error) {
-      setResult(error.message, true);
+      setClaimResult(type, error.message, true);
     } finally {
       button.disabled = false;
     }
